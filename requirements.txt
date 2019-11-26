@@ -1,3 +1,4 @@
+setuptools
 sounddevice
 scipy
 pathlib
