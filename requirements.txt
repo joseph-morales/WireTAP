@@ -1,4 +1,5 @@
 setuptools
+wheel
 sounddevice
 scipy
 pathlib
