@@ -37,7 +37,6 @@ def Record():
 	except Exception as e:
 		print ("[" + Colors.Fail + "X" + Colors.Normal + "] An Unknown Error Has Occured")
 		print (e.message, e.args)
-	print ('{:*^69}'.format(" " + Colors.Header + "Github @SKR3W92" + Colors.Normal + " "))
 
 if __name__ == '__main__':
 	Record()
