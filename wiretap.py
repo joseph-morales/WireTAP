@@ -44,6 +44,9 @@ def Help():
 	print ("python wiretap.py --upload-ftp [filename]	- " + Colors.Header + "Uploads file to FTP Server (Not Implemented Yet)" + Colors.Normal)
 	print ("python wiretap.py --help			- " + Colors.Header + "Displays this message" + Colors.Normal)
 
+def UploadFTP(hostname, username, password):
+	print ("Function Not Available In This Release, Check Future Releases")
+
 if __name__ == '__main__':
 	if(len(sys.argv) > 1):
 		if (sys.argv[1] == "--record"):
@@ -55,7 +58,7 @@ if __name__ == '__main__':
 			else:
 				print ("Not a vaild .wav file")
 		elif (sys.argv[1] == "--upload-ftp"):
-			print ("This function will be added in a later release")
+			UploadFTP("", "", "")
 		elif (sys.argv[1] == "--help"):
 			Help()
 		else:
