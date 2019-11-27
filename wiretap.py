@@ -8,6 +8,8 @@ import sounddevice as sd
 from scipy.io.wavfile import write
 from pathlib import Path
 from datetime import datetime
+from ftplib import FTP
+import fileinput
 
 class Colors:
 	Header = "\033[93m"
@@ -38,13 +40,20 @@ def Record():
 		print ("[" + Colors.Fail + "X" + Colors.Normal + "] An Unknown Error Has Occured")
 
 def Help():
-	print ('{:*^107}'.format(" " + Colors.Header + "Command Line Options" + Colors.Normal + " "))
-	print ("python wiretap.py --record			- " + Colors.Header + "Starts recording" + Colors.Normal)
-	print ("python wiretap.py --delete [filename]		- " + Colors.Header + "Deletes .wav Recording" + Colors.Normal)
-	print ("python wiretap.py --upload-ftp [filename]	- " + Colors.Header + "Uploads file to FTP Server (Not Implemented Yet)" + Colors.Normal)
-	print ("python wiretap.py --help			- " + Colors.Header + "Displays this message" + Colors.Normal)
+	print ('{:*^101}'.format(" " + Colors.Header + "Command Line Options" + Colors.Normal + " "))
+	print ("python wiretap.py --record					- " + Colors.Header + "Starts recording" + Colors.Normal)
+	print ("python wiretap.py --delete [filename]				- " + Colors.Header + "Deletes .wav Recording" + Colors.Normal)
+	print ("python wiretap.py --upload-ftp [host] [user] [pass] [file]	- " + Colors.Header + "Uploads file to FTP Server" + Colors.Normal)
+	print ("python wiretap.py --help					- " + Colors.Header + "Displays this message" + Colors.Normal)
 
-def UploadFTP(hostname, username, password):
+def UploadFTP(hostname, username, password, filename):
+	ftp = FTP()
+	ftp.set_debuglevel(2)
+	ftp.connect(hostname, 21)
+	ftp.login(username, password)
+	fp = open(filename, 'rb')
+	ftp.storbinary('STOR %s' % os.path.basename(filename), fp, 1024)
+	fp.close()
 	print ("Function Not Available In This Release, Check Future Releases")
 
 if __name__ == '__main__':
@@ -58,7 +67,7 @@ if __name__ == '__main__':
 			else:
 				print ("Not a vaild .wav file")
 		elif (sys.argv[1] == "--upload-ftp"):
-			UploadFTP("", "", "")
+			UploadFTP(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
 		elif (sys.argv[1] == "--help"):
 			Help()
 		else:
