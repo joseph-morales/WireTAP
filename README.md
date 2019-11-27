@@ -13,26 +13,24 @@ username@localhost: [~] $ pip install -r requirements.txt
 
 # How do I use wiretap.py
 ```
+python wiretap.py --help
+```
+The --help flag will display all the valid options you can use with wiretap.py
+
+```
 python wiretap.py --record
 ```
-
-python wiretap.py --record will restart recording
+The --record flag will start the audio recording process
 
 ```
 python wiretap.py --delete [filename]
 ```
-
-python wiretap.py --delete [filename] will delete the specified .wav file
-
-```
-
-python wiretap.py --upload-ftp [filename] will upload the specified .wav to your FTP Server (Option available in future release)
+The --delete [filename] flag will delete the specified .wav file, this option checks the extension so if the specified file is not a .wav wiretap will not delete it.
 
 ```
-python wiretap.py --help
+python wiretap.py --upload-ftp [filename]
 ```
-
-python wiretap.py --help will display the help for 'wiretap.py', it will show all valid options you can use.
+The --upload-ftp [filename] flag will upload the specified .wav file to your FTP Server, this option will be available in a future release
 
 # Filenaming Scheme
 wiretap.py will name the .wav file using a random number generated MD5 hash with the time and year appended to it, for example:
