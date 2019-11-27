@@ -38,11 +38,11 @@ def Record():
 		print ("[" + Colors.Fail + "X" + Colors.Normal + "] An Unknown Error Has Occured")
 
 def Help():
-	print ("Usage:")
-	print ("	python wiretap.py --record			- " + Colors.Header + "Starts recording" + Colors.Normal)
-	print ("	python wiretap.py --delete [filename]		- " + Colors.Header + "Deletes .wav Recording" + Colors.Normal)
-	print ("	python wiretap.py --upload-ftp [filename]	- " + Colors.Header + "Uploads file to FTP Server (Not Implemented Yet)" + Colors.Normal)
-	print ("	python wiretap.py --help			- " + Colors.Header + "Displays this message" + Colors.Normal)
+	print ('{:*^107}'.format(" " + Colors.Header + "Command Line Options" + Colors.Normal + " "))
+	print ("python wiretap.py --record			- " + Colors.Header + "Starts recording" + Colors.Normal)
+	print ("python wiretap.py --delete [filename]		- " + Colors.Header + "Deletes .wav Recording" + Colors.Normal)
+	print ("python wiretap.py --upload-ftp [filename]	- " + Colors.Header + "Uploads file to FTP Server (Not Implemented Yet)" + Colors.Normal)
+	print ("python wiretap.py --help			- " + Colors.Header + "Displays this message" + Colors.Normal)
 
 if __name__ == '__main__':
 	if(len(sys.argv) > 1):
