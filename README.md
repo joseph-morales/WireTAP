@@ -30,7 +30,7 @@ The --delete [filename] flag will delete the specified .wav file, this option ch
 ```
 python wiretap.py --upload-ftp [host] [user] [pass] [file]
 ```
-The --upload-ftp [host] [user] [pass] [file] flag will upload the specified .wav file to your FTP Server, this option will be available in a future release
+The --upload-ftp [host] [user] [pass] [file] flag will upload the specified .wav file to your FTP Server
 
 # Filenaming Scheme
 wiretap.py will name the .wav file using a random number generated MD5 hash with the time and year appended to it, for example:
