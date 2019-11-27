@@ -29,15 +29,15 @@ def Record():
 	filename = hash + "--" + dt + ".wav"
 	print ('{:*^69}'.format(" " + Colors.Header + "WireTAP" + Colors.Normal + " "))
 	try:
-		print ("[" + Colors.Ok + "+" + Colors.Normal + "] Recording for " + Colors.Ok + str(seconds) + Colors.Normal + " Seconds from Microphone")
+		print ("Recording for " + str(seconds) + " Seconds from Microphone")
 		record = sd.rec(int(seconds * 44100), samplerate=44100, channels=2)
 		sd.wait()
-		print ("[" + Colors.Ok + "+" + Colors.Normal + "] Saving " + Colors.Ok + filename + Colors.Normal)
+		print ("Saving " + filename)
 		write(filename, 44100, record)
 	except IOError:
-		print ("[" + Colors.Fail + "X" + Colors.Normal + "] Error Saving File, Check Permissions")
+		print ("Error Saving File, Check Permissions")
 	except Exception:
-		print ("[" + Colors.Fail + "X" + Colors.Normal + "] An Unknown Error Has Occured")
+		print ("An Unknown Error Has Occured")
 
 def Help():
 	print ('{:*^101}'.format(" " + Colors.Header + "Command Line Options" + Colors.Normal + " "))
@@ -57,7 +57,7 @@ def UploadFTP(hostname, username, password, filename):
 		fp.close()
 		ftp.close()
 	except (ftplib.all_errors), msg:
-		print ("Error: " + str(msg))
+		print (Colors.Fail + str(msg).split("[Errno 111] ")[1] + Colors.Normal)
 
 if __name__ == '__main__':
 	if(len(sys.argv) > 1):
