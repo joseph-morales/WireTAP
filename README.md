@@ -14,7 +14,9 @@ username@localhost: [~] $ pip install -r requirements.txt
 # How do I use wiretap.py
 it's very simple just open your shell and type the following command to start recording:
 
+```
 python wiretap.py --record
+```
 
 or you can type "python wiretap.py --help" to see a list of options that you can use.
 
