@@ -12,9 +12,11 @@ That's a project for a later date MAYBE, depending on how many request I get on 
 username@localhost: [~] $ pip install -r requirements.txt
 
 # How do I use wiretap.py
-it's very simple just open your shell and type the following command:
+it's very simple just open your shell and type the following command to start recording:
 
-username@localhost: [~] $ python wiretap.py
+python wiretap.py --record
+
+or you can type "python wiretap.py --help" to see a list of options that you can use.
 
 wiretap.py will name the .wav file using a random number generated MD5 hash, for example: D68260409E76CC8D225BE9882130CE4E--063723-2019.wav
 
