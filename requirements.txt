@@ -3,3 +3,5 @@ wheel
 sounddevice
 scipy
 pathlib
+ftplib
+fileinput
